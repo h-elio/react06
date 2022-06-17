@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Manual, Policy, Rule, EtcInfo } from "./pages/FooterMenu";
 import Notice from "./components/Notice";
 import Event from "./components/Event";
+import Form from "./components/Form";
 
 function App() {
     const title = "site";
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/policy" element={<Policy />} />
                     <Route path="/etcInfo" element={<EtcInfo />} />
                     <Route path="/event" element={<Event />} />
+                    <Route path="/form" element={<Form />} />
                 </Routes>
 
                 <Footer title={title} />
