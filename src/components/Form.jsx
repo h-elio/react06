@@ -16,7 +16,7 @@ function Form(props) {
             [e.target.name]: e.target.value,
         });
     };
-    console.log(state);
+    // console.log(state);
     const fncSubmit = () => {};
     return (
         <div style={{ width: "1200px", margin: "auto", fontSize: "2rem" }}>

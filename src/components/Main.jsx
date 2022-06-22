@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./../style/main.css";
+import "./../style/container.css";
 
 const Main = () => {
-    const listData = ["content01", "content02", "content03", "content04"]; // 4개짜리 배열
-    listData.unshift(listData[listData.length - 1]);
+    const listData = ["content01", "content02", "content03", "content04"];
+    listData.unshift(listData[listData.length - 1]); // listData의 첫 번째 요소로 'content04'를 넣는다
     const [num, setNum] = useState(0);
-    // const [check, setCheck] = useState("next");
     const checkRef = useRef("next");
-    console.log(checkRef);
 
     const fncClassAdd = (i) => {
         const on = i === num ? " on" : " on";
@@ -17,12 +16,11 @@ const Main = () => {
 
         return viewText + on;
     };
+
     const initialStyle = {
         position: "relative",
         left: "-100%",
         marginLeft: `${num * -100}%`,
-        // transition: num !== 0 ? "margin 500ms ease" : "none",
-        // animation: num === 0 ? "firstSlide 500ms ease 1" : "none",
     };
 
     const [slideStyle, setSlideStyle] = useState(initialStyle);
@@ -62,7 +60,7 @@ const Main = () => {
     return (
         <div className="mainContainer">
             <h2>메인페이지</h2>
-            <div className="viweBox">
+            <div className="viewBox">
                 <div className="slideBtn">
                     <button type="button" onClick={fncPrevSlide}>
                         이전
@@ -75,12 +73,10 @@ const Main = () => {
             <div className="viewContents">
                 <ul style={slideStyle}>
                     {listData.map((list, index) => (
-                        <li className={fncClassAdd(index)}>{list}</li>
+                        <li key={index} className={fncClassAdd(index)}>
+                            {list}
+                        </li>
                     ))}
-                    {/* <li className="view_01 on">01</li>
-                    <li className="view_02">02</li>
-                    <li className="view_03">03</li>
-                    <li className="view_04">04</li> */}
                 </ul>
             </div>
         </div>
